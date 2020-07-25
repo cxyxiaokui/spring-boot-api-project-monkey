@@ -22,7 +22,10 @@ public  class Page implements Serializable {
     private Integer pageSize;
 
     public Integer getPageNum() {
-        return isNullSetDeault(pageNum, 1);
+        if (this.pageNum == null) {
+            this.pageNum = 1;
+        }
+        return pageNum;
     }
 
     public void setPageNum(Integer pageNum) {
@@ -30,23 +33,15 @@ public  class Page implements Serializable {
     }
 
     public Integer getPageSize() {
-        return isNullSetDeault(pageSize, 10);
+        if (this.pageSize == null) {
+            this.pageSize = 10;
+        }
+        return pageSize;
     }
 
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
     }
 
-    /**
-     * 如何分页信息为null则设置分页信息的默认值
-     * @param num
-     * @param i
-     * @return
-     */
-    private Integer isNullSetDeault(Integer num, int i) {
-        if (num == null) {
-            num = i;
-        }
-        return num;
-    }
+
 }
