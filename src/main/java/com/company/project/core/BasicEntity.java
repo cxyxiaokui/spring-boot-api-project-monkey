@@ -1,6 +1,10 @@
 package com.company.project.core;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Date;
 
@@ -13,18 +17,35 @@ import java.util.Date;
  **/
 public class BasicEntity {
     /** 创建者 */
+    @ApiModelProperty(hidden=true)
+    @JsonIgnore
     private String createBy;
 
     /** 创建时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(hidden=true)
+    @JsonIgnore
     private Date createTime;
 
     /** 更新者 */
+    @ApiModelProperty(hidden=true)
+    @JsonIgnore
     private String updateBy;
 
     /** 更新时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(hidden=true)
+    @JsonIgnore
     private Date updateTime;
+    @ApiModelProperty(hidden=true)
+    @JsonIgnore
+    private Integer deleteFlag;
+
+    public Integer getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    public void setDeleteFlag(Integer deleteFlag) {
+        this.deleteFlag = deleteFlag;
+    }
 
     public String getCreateBy() {
         return createBy;
