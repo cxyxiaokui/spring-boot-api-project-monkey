@@ -1,14 +1,19 @@
 package com.company.project;
 
-import com.company.project.core.SystemLogColorConstant;
+import com.company.project.common.constants.SystemLogColorConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @Author：zhuoqianmingyue
- * @Date： 2020/07/11
+ *
+ * @Author：lihengming
+ * @Date：2017/6/23
+ * @Description：
+ *
+ * @Editor：zhuoqianmingyue
+ * @ModifiedDate： 2020/07/11
  * @Description：自定义符号日志输出代码来源 RuoYi：https://github.com/lerry903/RuoYi（在其基础上为其添加颜色输出展示）
  **/
 @SpringBootApplication

@@ -11,10 +11,14 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.company.project.core.ProjectConstant.*;
+import static com.company.project.common.constants.ProjectConstant.*;
 
 /**
  * 代码生成器，根据数据表名称生成对应的Model、Mapper、Service、Controller简化开发。
+ *
+ * @Author：lihengming
+ * @Date：2017/6/23
+ * @Description：
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置

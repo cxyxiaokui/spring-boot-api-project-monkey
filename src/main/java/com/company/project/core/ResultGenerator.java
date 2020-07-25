@@ -2,6 +2,10 @@ package com.company.project.core;
 
 /**
  * 响应结果生成工具
+ *
+ * @Author：lihengming
+ * @Date：2017/6/23
+ * @Description：
  */
 public class ResultGenerator {
     private static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";

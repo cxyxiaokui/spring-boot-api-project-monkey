@@ -10,6 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 单元测试继承该类即可
+ *
+ * @Author：lihengming
+ * @Date：2017/6/23
+ * @Description：
+ *
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)

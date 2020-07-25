@@ -1,4 +1,4 @@
-package com.company.project.core;
+package com.company.project.common.constants;
 
 /**
  * 系统日志彩色日志参数数据字典类

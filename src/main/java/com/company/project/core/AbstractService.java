@@ -1,75 +1,133 @@
 package com.company.project.core;
 
-
-import org.apache.ibatis.exceptions.TooManyResultsException;
-import org.springframework.beans.factory.annotation.Autowired;
-import tk.mybatis.mapper.entity.Condition;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.ParameterizedType;
+import cn.hutool.core.bean.BeanUtil;
 import java.util.List;
+import java.util.Map;
 
 /**
- * 基于通用MyBatis Mapper插件的Service接口的实现
- */
+ * 服务层的基础方法抽象
+ *
+ * @Author：lihengming
+ * @Date：2017/6/23
+ * @Description：
+ *
+ * @Editor：zhuoqianmingyue
+ * @ModifiedDate： 2020/6/21
+ * @Description：为每个方法添加了注释信息
+ **/
 public abstract class AbstractService<T> implements Service<T> {
+    /**
+     * 具体的Service实现并指定具体执行的DAO
+     * @return 具体实现 Mybaties DAO
+     */
+    public abstract IMapper<T> getMapper();
 
-    @Autowired
-    protected Mapper<T> mapper;
-
-    private Class<T> modelClass;    // 当前泛型真实类型的Class
-
-    public AbstractService() {
-        ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
-        modelClass = (Class<T>) pt.getActualTypeArguments()[0];
-    }
-
-    public void save(T model) {
-        mapper.insertSelective(model);
-    }
-
-    public void save(List<T> models) {
-        mapper.insertList(models);
-    }
-
-    public void deleteById(Integer id) {
-        mapper.deleteByPrimaryKey(id);
-    }
-
-    public void deleteByIds(String ids) {
-        mapper.deleteByIds(ids);
-    }
-
-    public void update(T model) {
-        mapper.updateByPrimaryKeySelective(model);
-    }
-
-    public T findById(Integer id) {
-        return mapper.selectByPrimaryKey(id);
-    }
-
+    /**
+     * 查询所有
+     * @return List<T> 指定泛型数据对象集合
+     */
     @Override
-    public T findBy(String fieldName, Object value) throws TooManyResultsException {
-        try {
-            T model = modelClass.newInstance();
-            Field field = modelClass.getDeclaredField(fieldName);
-            field.setAccessible(true);
-            field.set(model, value);
-            return mapper.selectOne(model);
-        } catch (ReflectiveOperationException e) {
-            throw new ServiceException(e.getMessage(), e);
-        }
+    public List<T> find() {
+        return this.getMapper().find();
     }
 
-    public List<T> findByIds(String ids) {
-        return mapper.selectByIds(ids);
+    /**
+     * 通过 Model 条件查询
+     * @param t 指定泛型数据对象
+     * @return List<T> 指定泛型数据对象集合
+     */
+    @Override
+    public List<T> find(T t) {
+        Map map = BeanUtil.beanToMap(t);
+        return this.getMapper().findByMap(map);
+    }
+    /**
+     * 根据Map条件查询
+     * @param map 查看条件与值得 Map 信息
+     * @return List<T> 指定泛型数据对象集合
+     */
+    @Override
+    public List<T> findByMap(Map<String, Object> map) {
+        return this.getMapper().findByMap(map);
     }
 
-    public List<T> findByCondition(Condition condition) {
-        return mapper.selectByCondition(condition);
+
+    /**
+     * 根据ID查询
+     * @param id
+     * @return T
+     */
+    @Override
+    public T getById(Long id) {
+        return this.getMapper().getById(id);
     }
 
-    public List<T> findAll() {
-        return mapper.selectAll();
+    /**
+     * 根据ID集合批量查询
+     * @param ids
+     * @return
+     */
+    @Override
+    public List<T> findByIds(List<Long> ids) {
+        return this.getMapper().findByIds(ids);
+    }
+    /**
+     * 保存
+     * @param t
+     * @return boolean 保存是否成功结果：true：成功、false：失败
+     */
+    @Override
+    public boolean save(T t) {
+        return this.getMapper().save(t) > 0;
+    }
+
+    /**
+     * 批量保存
+     * @param list
+     * @return boolean 批量保存插入是否成功结果 true：成功、false：失败
+     */
+    @Override
+    public boolean saveBatch(List<T> list) {
+        return this.getMapper().saveBatch(list) > 0;
+    }
+
+    /**
+     * 修改
+     * @param t
+     * @return boolean 修改是否成功的结果 true：成功、false：失败
+     */
+    @Override
+    public boolean update(T t) {
+        return this.getMapper().update(t) > 0;
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @return boolean 删除是否成功的结果 true：成功、false：失败
+     */
+    @Override
+    public boolean deleteById(Long id){
+        return this.getMapper().deleteById(id) > 0 ;
+    }
+
+    /**
+     * 根据Id 集合批量删除数据
+     * @param ids
+     * @return boolean 批量删除是否成功的结果 true：成功、false：失败
+     */
+    @Override
+    public boolean deleteByIds(List<Long> ids) {
+        return this.getMapper().deleteByIds(ids) > 0 ;
+    }
+
+    /**
+     * 批量更新
+     * @param list
+     * @return 批量更新是否成功的结果 true：成功、false：失败
+     */
+    @Override
+    public boolean updateBatch(List<T> list){
+        return this.getMapper().updateBatch(list) > 0;
     }
 }
