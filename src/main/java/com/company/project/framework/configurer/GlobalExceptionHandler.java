@@ -5,7 +5,9 @@ import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  * @Author zhuoqianmingyue
@@ -72,4 +75,29 @@ public class GlobalExceptionHandler {
         String message = exception.getAllErrors().get(0).getDefaultMessage();
         return ResultGenerator.genFailResult(message);
     }
+
+
+    /**
+     * 数据库操作不完整异常
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public <T> Result<T> dataIntegrityViolationException(DataIntegrityViolationException exception) {
+
+        log.error(exception.getMessage(), exception);
+        return ResultGenerator.genFailResult("数据库操作不完整异常！");
+    }
+
+    /**
+     * 错误的SQL语法异常
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(BadSqlGrammarException.class)
+    public <T> Result<T> badSqlGrammarException(BadSqlGrammarException exception) {
+
+        log.error(exception.getMessage(), exception);
+        return ResultGenerator.genFailResult("错误的SQL语法异常！");
+    }
+
+
 }
