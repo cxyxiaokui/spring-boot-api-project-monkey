@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.zhuoqianmingyue</groupId>
-    <artifactId>spring-boot-api-project-monkey1</artifactId>
+    <artifactId>spring-boot-api-project-monkey</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
