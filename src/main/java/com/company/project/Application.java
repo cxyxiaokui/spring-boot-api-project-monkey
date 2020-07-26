@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 
 /**
  *
@@ -17,6 +19,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description：自定义符号日志输出代码来源 RuoYi：https://github.com/lerry903/RuoYi（在其基础上为其添加颜色输出展示）
  **/
 @SpringBootApplication
+@ComponentScan(basePackages={"cn.hutool.extra.spring"})
+@Import(cn.hutool.extra.spring.SpringUtil.class)
 public class Application {
     private static Logger log = LoggerFactory.getLogger(Application.class);
     public static void main(String[] args) {
