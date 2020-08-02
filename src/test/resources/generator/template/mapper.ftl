@@ -1,11 +1,15 @@
-package ${basePackage}.service;
-import ${basePackage}.model.${modelNameUpperCamel};
-import ${basePackage}.core.Service;
+package ${basePackage}.${packageName}.mapper;
+import ${basePackage}.${packageName}.domain.${modelNameUpperCamel};
+import ${basePackage}.core.IMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 
 /**
- * Created by ${author} on ${date}.
- */
-public interface ${modelNameUpperCamel}Service extends Service<${modelNameUpperCamel}> {
+ * @Author： ${author}
+ * @Date： ${date}.
+ * @Description：
+ **/
+@Mapper
+public interface ${modelNameUpperCamel}Mapper extends IMapper<${modelNameUpperCamel}>{
 
 }

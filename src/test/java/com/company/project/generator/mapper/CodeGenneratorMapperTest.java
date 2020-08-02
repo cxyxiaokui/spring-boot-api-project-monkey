@@ -30,6 +30,8 @@ public class CodeGenneratorMapperTest extends Tester {
         for (GenTableColumn tableColumn : demoUserTableColumn) {
             String javaType = tableColumn.getJavaType();
             String javaField = tableColumn.getJavaField();
+            String javaFieldGetSetName = tableColumn.getJavaFieldGetSetName();
+            System.out.println(javaFieldGetSetName);
             System.out.println(javaType);
             System.out.println(javaField);
         }

@@ -1,6 +1,7 @@
 package com.company.project.generator.model;
 
 import cn.hutool.core.util.StrUtil;
+import com.google.common.base.CaseFormat;
 
 /**
  * 代码生成业务字段表 gen_table_column
@@ -42,6 +43,24 @@ public class GenTableColumn {
 
     /** JAVA字段名 */
     private String javaField;
+
+    private String javaFieldXML;
+
+    public String getJavaFieldBatchXML() {
+        return "#{item."+this.getJavaField()+"}";
+    }
+
+    private String javaFieldBatchXML;
+
+    public String getJavaFieldXML() {
+        return "#{"+this.getJavaField()+"}";
+    }
+
+    public String getJavaFieldGetSetName() {
+        return CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, this.columnName.toLowerCase());
+    }
+
+    private String javaFieldGetSetName;
 
     /** 是否主键（1是） */
     private String isPk;
