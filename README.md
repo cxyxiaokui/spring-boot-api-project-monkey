@@ -1,19 +1,30 @@
 ![Licence](https://img.shields.io/badge/licence-none-green.svg)
 [![GitHub Release](https://img.shields.io/github/release/lihengming/spring-boot-api-project-seed.svg)](https://github.com/lihengming/spring-boot-api-project-seed/releases)
-## 简介
-Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的种子项目，用于快速构建中小型API、RESTful API项目，该种子项目已经有过多个真实项目的实践，稳定、简单、快速，使我们摆脱那些重复劳动，专注于业务代码的编写，减少加班。下面是一个简单的使用演示，看如何基于本项目在短短几十秒钟内实现一套简单的API，并运行提供服务。
+## 平台简介
 
-[![请选择超清](https://raw.githubusercontent.com/lihengming/java-codes/master/shared-resources/github-images/project-example-youku.png)](http://v.youku.com/v_show/id_XMjg1NjYwNDgxNg==.html?spm=a2h3j.8428770.3416059.1)
-## 特征&提供
-- 最佳实践的项目结构、配置文件、精简的POM（[查看项目结构图](https://github.com/lihengming/java-codes/blob/master/shared-resources/github-images/project-struct.png)）
-- 统一响应结果封装及生成工具
-- 统一异常处理
+该项目基于 Spring Boot API Project Speed 开源项目改造而来，将原先的 SpringBoot 版本 1.5.4.RELEASE 升级为 2.1.1.RELEASE 。
+去除 MyBatis 通用Mapper插件替换为MyBatis 提供SpringBoot starter 原生方式，添加在线文档工具 Knife4j、单元测试封装等新功能。具体请参看 *提供内置功能*列表。
+
+### 开源该项目的初衷
+
+Spring Boot API Project Speed 项目是自己在 GitHub 查找 SpringBoot API 开源项目时发现的，参看了下源码后觉得写的确实不错，
+但是有些地方和我想要的不太一样，于是利用业务时间改造了一个自己喜欢的后台 API 项目的轮子。本着继续延续 Spring Boot API Project Speed 项目的宗旨：快速、简洁、灵活，故又起了一个新名字 Moneky 。
+
+## 提供内置功能
+
+- 统一响应结果封装及生成工具。
+- 统一异常处理。
 - 简单的接口签名认证
-- 常用基础方法抽象封装
-- 使用Druid Spring Boot Starter 集成Druid数据库连接池与监控
-- 使用FastJsonHttpMessageConverter，提高JSON序列化速度
-- 集成MyBatis、通用Mapper插件、PageHelper分页插件，实现单表业务零SQL
-- 提供代码生成器根据表名生成对应的Model、Mapper、MapperXML、Service、ServiceImpl、Controller等基础代码，其中Controller模板默认提供POST和RESTful两套，根据需求在```CodeGenerator.genController(tableName)```方法中自己选择，默认使用POST模板。代码模板可根据实际项目的需求来扩展，由于每个公司业务都不太一样，所以只提供了一些比较基础、通用的模板，**主要是提供一个思路**来减少重复代码的编写，我在实际项目的使用中，其实根据公司业务的抽象编写了大量的模板。另外，使用模板也有助于保持团队代码风格的统一
+- 常用基础方法抽象封装。
+- 使用Druid Spring Boot Starter 集成Druid数据库连接池与监控。
+- 使用FastJsonHttpMessageConverter，提高JSON序列化速度。
+- 使用 Jasypt加密，提高项目配置安全性。
+- 集成原生MyBatis Xml方式、PageHelper分页插件。
+- 集成 Swagger-Bootstrap-UI 增强版 Knife4j 在线展示 Swagger 配置文档。
+- 提供代码生成器根据表名生成对应的Model、Mapper、MapperXML、Service、ServiceImpl、Controller基础代码。
+- 对 MockMvc 进行封装使用MockMvc 测试更简单，同时基于封装的MockMvc单元测试基础代码生成。
+- 集成 kk-anti-reptile 反爬虫，防止接口盗刷。
+- 集成优秀工具类库 Hutool
 - 另有彩蛋，待你探索
  
 ## 快速开始
@@ -35,11 +46,13 @@ Spring Boot API Project Seed 是一个基于Spring Boot & MyBatis的种子项目
 ## 技术选型&文档
 - Spring Boot（[查看Spring Boot学习&使用指南](http://www.jianshu.com/p/1a9fd8936bd8)）
 - MyBatis（[查看官方中文文档](http://www.mybatis.org/mybatis-3/zh/index.html)）
-- MyBatisb通用Mapper插件（[查看官方中文文档](https://mapperhelper.github.io/docs/)）
 - MyBatis PageHelper分页插件（[查看官方中文文档](https://pagehelper.github.io/)）
 - Druid Spring Boot Starter（[查看官方中文文档](https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter/)）
 - Fastjson（[查看官方中文文档](https://github.com/Alibaba/fastjson/wiki/%E9%A6%96%E9%A1%B5)）
+- Knife4j [查看官方中文文档](https://doc.xiaominfo.com/guide/useful.html)）
+- Hutool [查看Hutool使用文档](https://www.hutool.cn/docs/#/)）
+- kk-anti-reptile [查看kk-anti-reptile使用文档](https://github.com/kekingcn/kk-anti-reptile)）
 - 其他略
 
 ## License
-无，纯粹开源分享，感谢大家 [Star](https://github.com/lihengming/spring-boot-api-project-seed/stargazers) & [Fork](https://github.com/lihengming/spring-boot-api-project-seed/network/members) 的支持。
+Apache-2.0 License ，感谢大家 [Star](https://github.com/zhuoqianmingyue/spring-boot-api-project-monkey/stargazers) & [Fork](https://github.com/lihengming/spring-boot-api-project-monkey/network/members) 的支持。
