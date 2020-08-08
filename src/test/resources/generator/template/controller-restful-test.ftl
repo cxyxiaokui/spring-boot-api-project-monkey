@@ -186,8 +186,7 @@ public class ${modelNameUpperCamel}ControllerTest extends Tester{
      * @return
     */
     private  ${modelNameUpperCamel} buildEntity() {
-        //TODO 模拟Entitiy 信息数据 建议使用JMockData
-        return new ${modelNameUpperCamel}();
+        throw new BusinessException("请先添加模拟数据逻辑， 建议使用JMockData");
     }
 
     private void deleteAllData() {

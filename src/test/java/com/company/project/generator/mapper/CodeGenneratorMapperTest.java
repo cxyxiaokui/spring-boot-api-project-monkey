@@ -36,14 +36,6 @@ public class CodeGenneratorMapperTest  {
     public void selectTableColumnsByTableName() {
         CodeGenneratorMapper codeGenneratorMapper = SpringUtil.getBean(CodeGenneratorMapper.class);
         List<GenTableColumn> demoUserTableColumn = codeGenneratorMapper.selectTableColumnsByTableName("demo_user");
-        for (GenTableColumn tableColumn : demoUserTableColumn) {
-            String javaType = tableColumn.getJavaType();
-            String javaField = tableColumn.getJavaField();
-            String javaFieldGetSetName = tableColumn.getJavaFieldGetSetName();
-            System.out.println(javaFieldGetSetName);
-            System.out.println(javaType);
-            System.out.println(javaField);
-        }
         Assert.assertNotNull(demoUserTableColumn);
     }
 }

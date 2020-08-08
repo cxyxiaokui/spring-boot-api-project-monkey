@@ -19,8 +19,8 @@ import java.util.List;
 import com.company.project.core.ControllerSupport;
 import com.company.project.core.Page;
 /**
- * @Author： CodeGenerator
- * @Date： 2020/08/08.
+ * @Author： zhuoqianmingyue
+ * @Date： 2020/08/09.
  * @Description：
  **/
 @RestController

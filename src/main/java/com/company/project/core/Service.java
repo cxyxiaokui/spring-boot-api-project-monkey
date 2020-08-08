@@ -1,8 +1,5 @@
 package com.company.project.core;
 
-import org.apache.ibatis.exceptions.TooManyResultsException;
-import tk.mybatis.mapper.entity.Condition;
-
 import java.util.List;
 import java.util.Map;
 

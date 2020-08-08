@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**
- * @Author： CodeGenerator
- * @Date： 2020/08/08.
+ * @Author： zhuoqianmingyue
+ * @Date： 2020/08/09.
  * @Description：
  **/
 public class DemoUser extends BasicEntity{

@@ -41,7 +41,9 @@ public abstract class AbstractRequestMethodMockMvc implements RequestMethodMockM
      * 认证授权的 accessToken
      * */
     private String accessToken;
-
+    /**
+     * 请求参数日期格式
+     */
     private String requestBodyModelDateFormat;
 
 

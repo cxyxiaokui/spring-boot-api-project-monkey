@@ -67,15 +67,15 @@ public class CodeGenerator {
 
             String modelNameUpperCamel = (String)data.get("modelNameUpperCamel");
             String entityPath = JAVA_PATHP_REFIX + CodeNameConverUtil.packageConvertPath(BASE_PACKAGE + "." + packageName + ".domain") + modelNameUpperCamel + ".java";
-            freemarkerUtil.createFile("entity.ftl",entityPath);
+            freemarkerUtil.createCodeFile("entity.ftl",entityPath);
             log.info(modelNameUpperCamel + ".java 生成成功");
 
             String mapperPath = JAVA_PATHP_REFIX + CodeNameConverUtil.packageConvertPath(BASE_PACKAGE +"."+ packageName+ ".mapper") + modelNameUpperCamel + "Mapper.java";
-            freemarkerUtil.createFile("mapper.ftl",mapperPath);
+            freemarkerUtil.createCodeFile("mapper.ftl",mapperPath);
             log.info(modelNameUpperCamel + "Mapper.java 生成成功");
 
             String mapperXmlPath = RESOURCES_PATH_REFIX + "/mapper/" + modelNameUpperCamel + "Mapper.xml";
-            freemarkerUtil.createFile("mapperXml.ftl",mapperXmlPath);
+            freemarkerUtil.createCodeFile("mapperXml.ftl",mapperXmlPath);
             log.info(modelNameUpperCamel + "Mapper.xml");
         } catch (IOException | TemplateException e) {
             e.printStackTrace();
@@ -89,11 +89,11 @@ public class CodeGenerator {
 
             FreemarkerUtil freemarkerUtil = new FreemarkerUtil(data);
             String servicePath = JAVA_PATHP_REFIX + CodeNameConverUtil.packageConvertPath(BASE_PACKAGE +"."+ packageName+ ".service") + modelNameUpperCamel + "Service.java";
-            freemarkerUtil.createFile("service.ftl",servicePath);
+            freemarkerUtil.createCodeFile("service.ftl",servicePath);
             log.info(modelNameUpperCamel + "Service.java 生成成功");
 
             String serviceImplPath =  JAVA_PATHP_REFIX + CodeNameConverUtil.packageConvertPath(BASE_PACKAGE  +"."+ packageName+".service" + ".impl") + modelNameUpperCamel + "ServiceImpl.java";
-            freemarkerUtil.createFile("service-impl.ftl",serviceImplPath);
+            freemarkerUtil.createCodeFile("service-impl.ftl",serviceImplPath);
             log.info(modelNameUpperCamel + "ServiceImpl.java 生成成功");
         } catch (Exception e) {
             throw new RuntimeException("生成Service失败", e);
@@ -109,7 +109,7 @@ public class CodeGenerator {
 
             String controllerPath = PROJECT_PATH + JAVA_PATH + CodeNameConverUtil.packageConvertPath(BASE_PACKAGE  +"."+ packageName+ ".web") + modelNameUpperCamel + "Controller.java";
             FreemarkerUtil freemarkerUtil = new FreemarkerUtil(data);
-            freemarkerUtil.createFile("controller-restful.ftl",controllerPath);
+            freemarkerUtil.createCodeFile("controller-restful.ftl",controllerPath);
             log.info(modelNameUpperCamel + "Controller.java 生成成功");
         } catch (Exception e) {
             throw new RuntimeException("生成Controller失败", e);
@@ -126,7 +126,7 @@ public class CodeGenerator {
 
             String controllerTestPath = PROJECT_PATH + JAVA_TEST_PATH + CodeNameConverUtil.packageConvertPath(BASE_PACKAGE  +"."+ packageName+ ".web") + modelNameUpperCamel + "ControllerTest.java";
             FreemarkerUtil freemarkerUtil = new FreemarkerUtil(data);
-            freemarkerUtil.createFile("controller-restful-test.ftl",controllerTestPath);
+            freemarkerUtil.createCodeFile("controller-restful-test.ftl",controllerTestPath);
             log.info(modelNameUpperCamel + "ControllerTest.java 生成成功");
         } catch (Exception e) {
             throw new RuntimeException("生成Controller失败", e);

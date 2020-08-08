@@ -34,11 +34,6 @@ public class NumbeFieldTypeState extends SetJavaFieldTypeState {
 
     @Override
     public void switchState(String dataType, GenTableColumn tableColumn) {
-        if (arraysContains(GenConstants.COLUMNTYPE_TIME, dataType)){
-            tableColumn.setCurrent(new DateFieldTypeState()).getJavaType();
-        }
-        if (arraysContains(GenConstants.COLUMNTYPE_STR, dataType)){
             tableColumn.setCurrent(new SetStringFieldTypeState()).getJavaType();
-        }
     }
 }

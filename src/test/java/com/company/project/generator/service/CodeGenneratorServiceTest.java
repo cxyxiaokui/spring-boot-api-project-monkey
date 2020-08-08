@@ -1,13 +1,12 @@
 package com.company.project.generator.service;
 
 import com.company.project.Application;
-//import com.company.project.Tester;
 import com.company.project.generator.model.GenTable;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Service;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
@@ -25,8 +24,8 @@ public class CodeGenneratorServiceTest {
     private CodeGenneratorService CodeGenneratorService;
     @Test
     public void getTableInfo(){
-        GenTable demo_user = CodeGenneratorService.getTableInfo("demo_user");
-        System.out.println("");
+        GenTable tableInfo = CodeGenneratorService.getTableInfo("demo_user");
+        Assert.assertNotNull(tableInfo);
     }
 
 }

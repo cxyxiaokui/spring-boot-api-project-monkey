@@ -1,6 +1,7 @@
 package com.company.project.jmock;
 
 //import com.company.project.demoUser.domain.DemoUser;
+import com.company.project.demoUser.domain.DemoUser;
 import com.github.jsonzou.jmockdata.JMockData;
 import com.github.jsonzou.jmockdata.MockConfig;
 import com.github.jsonzou.jmockdata.TypeReference;
@@ -40,8 +41,8 @@ public class JmockTest {
     }
     @Test
     public void basicBeanTest(){
-//        DemoUser demoUser = JMockData.mock(DemoUser.class);
-//        Assert.assertNotNull(demoUser);
+        DemoUser demoUser = JMockData.mock(DemoUser.class);
+        Assert.assertNotNull(demoUser);
     }
 
     @Test
@@ -112,7 +113,7 @@ public class JmockTest {
     @Test
     public void testRegexMock() {
 //        MockConfig mockConfig = new MockConfig()
-                // 随机段落字符串
+//                 随机段落字符串
 //                .stringRegex("I'am a nice man\\.And I'll just scribble the characters, like：[a-z]{2}-[0-9]{2}-[abc123]{2}-\\w{2}-\\d{2}@\\s{1}-\\S{1}\\.?-.")
 //                // 邮箱
 //                .subConfig(RegexTestDataBean.class,"userEmail")
@@ -133,6 +134,5 @@ public class JmockTest {
 //                .subConfig(RegexTestDataBean.class,"userValue")
 //                .numberRegex("[1-9]{1}\\d{3,8}")
 //                .globalConfig();
-
     }
 }

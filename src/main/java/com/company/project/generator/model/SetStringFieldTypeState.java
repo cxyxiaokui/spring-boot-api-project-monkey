@@ -22,13 +22,6 @@ public class SetStringFieldTypeState extends SetJavaFieldTypeState {
 
     @Override
     public void switchState(String dataType, GenTableColumn tableColumn) {
-        if (arraysContains(GenConstants.COLUMNTYPE_NUMBER, dataType)) {
-            tableColumn.setCurrent(new NumbeFieldTypeState()).getJavaType();
-        }
-
-        if (arraysContains(GenConstants.COLUMNTYPE_TIME, dataType)){
             tableColumn.setCurrent(new DateFieldTypeState()).getJavaType();
-        }
     }
-
 }

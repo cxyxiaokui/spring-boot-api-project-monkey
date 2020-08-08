@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author： CodeGenerator
- * @Date： 2020/08/08.
+ * @Author： zhuoqianmingyue
+ * @Date： 2020/08/09.
  * @Description：
  **/
 public class DemoUserControllerTest extends Tester{
@@ -186,8 +186,7 @@ public class DemoUserControllerTest extends Tester{
      * @return
     */
     private  DemoUser buildEntity() {
-        //TODO 模拟Entitiy 信息数据 建议使用JMockData
-                MockConfig mockConfig = new MockConfig()
+        MockConfig mockConfig = new MockConfig()
                 //随机段落字符串
                 .stringRegex("I'am a nice man\\.And I'll just scribble the characters, like：[a-z]{2}-[0-9]{2}-[abc123]{2}-\\w{2}-\\d{2}@\\s{1}-\\S{1}\\.?-.")
                 // 邮箱

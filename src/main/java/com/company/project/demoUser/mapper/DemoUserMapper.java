@@ -5,8 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 
 /**
- * @Author： CodeGenerator
- * @Date： 2020/08/08.
+ * @Author： zhuoqianmingyue
+ * @Date： 2020/08/09.
  * @Description：
  **/
 @Mapper

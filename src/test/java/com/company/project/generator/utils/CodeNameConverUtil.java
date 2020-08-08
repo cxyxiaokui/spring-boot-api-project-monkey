@@ -17,7 +17,11 @@ public class CodeNameConverUtil {
         String tableName = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, modelName);
         return tableNameConvertMappingPath(tableName);
     }
-
+    /**
+     *  将表名转换成Mapping 路径
+     * @param tableName
+     * @return
+     */
     public static  String tableNameConvertMappingPath(String tableName) {
         tableName = tableName.toLowerCase();//兼容使用大写的表名
         return "/" + (tableName.contains("_") ? tableName.replaceAll("_", "/") : tableName);
