@@ -1,6 +1,7 @@
 package ${basePackage}.${packageName}.domain;
 import com.company.project.core.BasicEntity;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 /**
@@ -24,6 +25,7 @@ public class ${modelNameUpperCamel} extends BasicEntity{
     @ApiModelProperty(value="${column.columnComment}",name="${column.javaField}",example="1")
  </#if>
  <#if  (column.javaType == "Date")>
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value="${column.columnComment}",name="${column.javaField}",example="2020-01-01")
  </#if>
     private ${column.javaType} ${column.javaField};

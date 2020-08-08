@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Import;
  * @Description：自定义符号日志输出代码来源 RuoYi：https://github.com/lerry903/RuoYi（在其基础上为其添加颜色输出展示）
  **/
 @SpringBootApplication
-@ComponentScan(basePackages={"cn.hutool.extra.spring"})
+@ComponentScan(basePackages={"cn.hutool.extra.spring","com.company.project"})
 @Import(cn.hutool.extra.spring.SpringUtil.class)
 public class Application {
     private static Logger log = LoggerFactory.getLogger(Application.class);

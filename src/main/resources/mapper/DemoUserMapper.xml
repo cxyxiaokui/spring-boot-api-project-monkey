@@ -1,67 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.company.project.user.mapper.DemoUserMapper">
+<mapper namespace="com.company.project.demoUser.mapper.DemoUserMapper">
 
-    <select id="getById" resultType="com.company.project.user.domain.DemoUser">
-        SELECT * FROM demo_user WHERE id = #{id}
+    <select id="getById" resultType="com.company.project.demoUser.domain.DemoUser">
+        SELECT * FROM  demo_user WHERE id =  #{id}
     </select>
 
-    <select id="findByIds" resultType="com.company.project.user.domain.DemoUser">
+    <select id="findByIds" resultType="com.company.project.demoUser.domain.DemoUser">
         SELECT * FROM  demo_user  WHERE id IN
         <foreach collection="ids" item="id" open="(" separator="," close=")">
-            #{id}
+             #{id}
         </foreach>
     </select>
 
-    <select id="find" resultType="com.company.project.user.domain.DemoUser">
+    <select id="find" resultType="com.company.project.demoUser.domain.DemoUser">
         SELECT * FROM demo_user
     </select>
 
-    <select id="findByMap" resultType="com.company.project.user.domain.DemoUser" parameterType="Map">
+    <select id="findByMap" resultType="com.company.project.demoUser.domain.DemoUser" parameterType="Map">
         SELECT * FROM demo_user
         <where>
             <if test="username != null and username != ''">
-                username = #{username} AND
+                username = #{username}  AND
             </if>
             <if test="password != null and password != ''">
-                password =  #{password} AND
+                password = #{password}  AND
             </if>
             <if test="nickName != null and nickName != ''">
-                nick_name =  #{nickName} AND
+                nick_name = #{nickName}  AND
             </if>
-
+            <if test="email != null and email != ''">
+                email = #{email}  AND
+            </if>
             <if test="sex != null ">
-                sex =  #{sex} AND
+                sex = #{sex} AND
             </if>
-                delete_flag = 1
+            <if test="registerDate != null ">
+                register_date = #{registerDate} AND
+            </if>
+            <if test="createTime != null ">
+                create_time = #{createTime} AND
+            </if>
+            <if test="updateBy != null ">
+                update_by = #{updateBy} AND
+            </if>
+            <if test="createBy != null ">
+                create_by = #{createBy} AND
+            </if>
+            <if test="updateTime != null ">
+                update_time = #{updateTime} AND
+            </if>
+            delete_flag = 1
         </where>
     </select>
 
-    <insert id="save" parameterType="com.company.project.user.domain.DemoUser" useGeneratedKeys="true" keyProperty="id">
+    <insert id="save" parameterType="com.company.project.demoUser.domain.DemoUser" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO demo_user
         (
-         `username`,
-         `password`,
-         `nick_name`,
-         `sex`,
-         `register_date`,
-         `create_by`,
-         `update_by`,
-         `create_time`,
-         `update_time`,
-         `delete_flag`
-          )
+            `username`,
+            `password`,
+            `nick_name`,
+            `email`,
+            `sex`,
+            `register_date`,
+            `update_by`,
+            `create_by`,
+            `update_time`,
+            `create_time`,
+            `delete_flag`
+        )
         VALUES
         (
             #{username} ,
             #{password} ,
             #{nickName} ,
+            #{email} ,
             #{sex} ,
-            now() ,
-            #{createBy} ,
+            #{registerDate} ,
             #{updateBy} ,
-            now() ,
+            #{createBy} ,
             #{updateTime} ,
+            now(),
             1
         )
     </insert>
@@ -69,76 +88,84 @@
         <if test="list != null and list.size() > 0">
             INSERT INTO demo_user
             (
-            `username`,
-            `password`,
-            `nick_name`,
-            `sex`,
-            `register_date`,
-            `create_by`,
-            `update_by`,
-            `create_time`,
-            `update_time`,
-            `delete_flag`
+                `username`,
+                `password`,
+                `nick_name`,
+                `email`,
+                `sex`,
+                `register_date`,
+                `update_by`,
+                `create_by`,
+                `update_time`,
+                `create_time`,
+                `delete_flag`
             )VALUES
             <foreach collection="list" item="item" index="index" separator=",">
                 (
-                #{item.username} ,
-                #{item.password} ,
-                #{item.nickName} ,
-                #{item.sex} ,
-                now() ,
-                #{item.createBy} ,
-                #{item.updateBy} ,
-                now() ,
-                #{item.updateTime} ,
-                1
+
+                        #{item.username},
+                        #{item.password},
+                        #{item.nickName},
+                        #{item.email},
+                        #{item.sex},
+                        #{item.registerDate},
+                        #{item.updateBy},
+                        #{item.createBy},
+                        #{item.updateTime},
+                    now(),
+                    1
                 )
             </foreach>
         </if>
     </insert>
-    <update id="update" parameterType="com.company.project.user.domain.DemoUser">
+    <update id="update" parameterType="com.company.project.demoUser.domain.DemoUser">
         UPDATE demo_user
         <set>
-            <if test="username != null">  `username` = #{username}, </if>
-            <if test="password != null">  `password` = #{password}, </if>
-            <if test="nickName != null">  `nick_name` = #{nickName}, </if>
-            <if test="sex != null">  `sex` = #{sex}, </if>
-            <if test="createBy != null">  `create_by` = #{createBy}, </if>
-            <if test="updateBy != null">  `update_by` = #{updateBy}, </if>
-            <if test="createTime != null">  `create_time` = #{createTime}, </if>
-            <if test="deleteFlag != null">  `delete_flag` = #{deleteFlag}, </if>
+                <if test="username != null">  `username` = #{username}, </if>
+                <if test="password != null">  `password` = #{password}, </if>
+                <if test="nickName != null">  `nick_name` = #{nickName}, </if>
+                <if test="email != null">  `email` = #{email}, </if>
+                <if test="sex != null">  `sex` = #{sex}, </if>
+                <if test="registerDate != null">  `register_date` = #{registerDate}, </if>
+                <if test="createTime != null">  `create_time` = #{createTime}, </if>
+                <if test="updateBy != null">  `update_by` = #{updateBy}, </if>
+                <if test="createBy != null">  `create_by` = #{createBy}, </if>
+                <if test="deleteFlag != null">  `delete_flag` = #{deleteFlag}, </if>
+
             update_time = now()
         </set>
 
-        WHERE id = #{id}
+        WHERE id =  #{id}
     </update>
 
     <update id="updateBatch"  >
         <foreach collection="list" item="item" index="index" separator=";" >
             UPDATE demo_user
             <set>
-                <if test="item.username != null">  `username` = #{item.username}, </if>
-                <if test="item.password != null">  `password` = #{item.password}, </if>
-                <if test="item.nickName != null">  `nick_name` = #{item.nickName}, </if>
-                <if test="item.sex != null">  `sex` = #{item.sex}, </if>
-                <if test="item.createBy != null">  `create_by` = #{item.createBy}, </if>
-                <if test="item.updateBy != null">  `update_by` = #{item.updateBy}, </if>
-                <if test="item.createTime != null">  `create_time` = #{item.createTime}, </if>
-                <if test="item.updateTime != null">  `update_time` = #{item.updateTime}, </if>
-                <if test="item.deleteFlag != null">  `delete_flag` = #{item.deleteFlag}, </if>
+                    <if test="item.username != null">  `username` =  #{item.username}, </if>
+                    <if test="item.password != null">  `password` =  #{item.password}, </if>
+                    <if test="item.nickName != null">  `nick_name` =  #{item.nickName}, </if>
+                    <if test="item.email != null">  `email` =  #{item.email}, </if>
+                    <if test="item.sex != null">  `sex` =  #{item.sex}, </if>
+                    <if test="item.registerDate != null">  `register_date` =  #{item.registerDate}, </if>
+                    <if test="item.createTime != null">  `create_time` =  #{item.createTime}, </if>
+                    <if test="item.updateBy != null">  `update_by` =  #{item.updateBy}, </if>
+                    <if test="item.createBy != null">  `create_by` =  #{item.createBy}, </if>
+                    <if test="item.deleteFlag != null">  `delete_flag` =  #{item.deleteFlag}, </if>
+                update_time = now()
             </set>
             WHERE id = #{item.id}
         </foreach>
     </update>
 
     <delete id="deleteById" parameterType="Long">
-        DELETE  FROM  demo_user WHERE id = #{id}
+        DELETE  FROM  demo_user WHERE id =  #{id}
     </delete>
 
     <delete id="deleteByIds" >
         DELETE FROM  demo_user  WHERE id IN
         <foreach collection="ids" item="id" open="(" separator="," close=")">
-            #{id}
+             #{id}
         </foreach>
     </delete>
 </mapper>

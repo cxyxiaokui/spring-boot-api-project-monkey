@@ -51,7 +51,7 @@
         VALUES
         (
         <#list table.columns as column>
-             <#if column.columnName != table.pkColumn.columnName &&  column.columnName != "create_time">
+             <#if column.columnName != table.pkColumn.columnName &&  column.columnName != "create_time" &&  column.columnName != "delete_flag">
             ${column.javaFieldXML} ,
              </#if>
         </#list>

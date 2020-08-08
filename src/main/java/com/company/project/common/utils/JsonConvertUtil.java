@@ -18,7 +18,7 @@ public class JsonConvertUtil {
      * JSON 转 Object
      */
     public static <T> T jsonToObject(String pojo,Class<T> clazz) {
-        Gson gson = initGson(null, false);
+        Gson gson = initGson("yyyy-MM-dd HH:mm:ss", false);
         return gson.fromJson(pojo, clazz);
     }
     /**
@@ -32,7 +32,7 @@ public class JsonConvertUtil {
      * JSON 转 Object
      */
     public static <T> String toJson(T t) {
-        Gson gson = initGson(null, false);
+        Gson gson = initGson("yyyy-MM-dd HH:mm:ss", false);
         return gson.toJson(t);
     }
     /**
