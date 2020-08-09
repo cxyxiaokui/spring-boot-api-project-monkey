@@ -1,6 +1,7 @@
-[!Spring Boot 2.0](https://img.shields.io/badge/Spring%20Boot-2.0-brightgreen.svg)
-[!license](https://img.shields.io/badge/license-apache%202.0-blue.svg)
-[![GitHub Release](https://img.shields.io/github/release/lihengming/spring-boot-api-project-seed.svg)](https://github.com/lihengming/spring-boot-api-project-seed/releases)
+![Spring Boot 2.0](https://img.shields.io/badge/Spring%20Boot-2.0-brightgreen.svg)
+![JDK 1.8](https://img.shields.io/badge/JDK-1.8-brightgreen.svg)
+[![GitHub Release](https://img.shields.io/badge/version-V2.0.0-blue)](https://github.com/lihengming/spring-boot-api-project-seed/releases)
+
 ## 平台简介
 
 Spring Boot API Project Monkey 项目基于 Spring Boot API Project Speed [项目地址](https://github.com/lihengming/spring-boot-api-project-seed)） 开源项目改造而来，将原先的 SpringBoot 版本 1.5.4.RELEASE 升级为 2.1.1.RELEASE 。
