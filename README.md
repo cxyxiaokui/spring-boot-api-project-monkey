@@ -37,8 +37,9 @@ Spring Boot API Project Speed 项目是自己在 GitHub 查找 SpringBoot API �
 3. 如果只是想根据上面的演示来亲自试试的话可以使用```test resources```目录下的```demo-user.sql```，否则忽略该步
 3. CodeGenerator 修改表名(TABLE_NAME)、包名（PACKAGE_NAME）、Entitiy名称（ENTITY_NAME）运行```CodeGenerator.genCodeByCustomModelName()```测试方法，生成基础代码（可能需要刷新项目目录才会出来）
 4. 根据业务在基础代码上进行扩展
-5. 对开发环境配置文件```application-dev.properties```进行配置，启动项目，Have Fun！
- 
+5. 对开发环境配置文件```application-dev.properties```进行配置，启动项目。
+6. 访问 localhost:8080/doc.html 查看项目API文档以及测试。
+
 ## 开发建议
 - 表名，建议使用小写，多个单词使用下划线拼接
 - 建议业务失败直接使用```BusinessException("message")```抛出，由统一异常处理器来封装业务失败的响应结果，比如```throw new ServiceException("该手机号已被注册")```，会直接被封装为```{"code":400,"message":"该手机号已被注册"}```返回，无需自己处理，尽情抛出
