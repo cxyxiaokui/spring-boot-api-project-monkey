@@ -32,31 +32,34 @@ import static com.company.project.generator.constants.CodeGeneratorConstant.*;
 @RunWith(SpringRunner.class)
 public class CodeGenerator {
 
+    public static final String TABLE_NAME = "demo_user";
+    public static final String PACKAGE_NAME = "demoUser";
+    public static final String ENTITIY_NAME = "DemoUser";
     private Logger log = LoggerFactory.getLogger(CodeGenerator.class);
 
     @Test
     public void genCodeByCustomModelName() throws IOException, TemplateException {
-        this.genCodeByCustomModelName("demo_user","demoUser","DemoUser");
+        this.genCodeByCustomModelName(TABLE_NAME, PACKAGE_NAME, ENTITIY_NAME);
     }
 
     /**
      * 通过数据表名称，和自定义的 Model 名称生成代码
      * 如输入表名称 "t_user_detail" 和自定义的 Model 名称 "User" 将生成 User、UserMapper、UserService ...
      * @param tableName 数据表名称
-     * @param modelName 自定义的 Model 名称
+     * @param entityName 自定义的 Entity 名称
      */
-    public  void genCodeByCustomModelName(String tableName,String packageName, String modelName) throws IOException, TemplateException {
-        genModelAndMapper(tableName,packageName, modelName);
-        genService(tableName,packageName, modelName);
-        genController(tableName,packageName, modelName);
-        genControllerTest(tableName,packageName, modelName);
+    public  void genCodeByCustomModelName(String tableName,String packageName, String entityName) throws IOException, TemplateException {
+        genModelAndMapper(tableName,packageName, entityName);
+        genService(tableName,packageName, entityName);
+        genController(tableName,packageName, entityName);
+        genControllerTest(tableName,packageName, entityName);
     }
 
-    public  void genModelAndMapper(String tableName,String packageName, String modelName) {
+    public  void genModelAndMapper(String tableName,String packageName, String entityName) {
         CodeGenneratorService codeGenneratorService = SpringUtil.getBean(CodeGenneratorService.class);
         GenTable tableInfo = codeGenneratorService.getTableInfo(tableName);
 
-        Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName,modelName);
+        Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName,entityName);
 
         data.put("table",tableInfo);
         data.put("mybatisIdParam"," #{id}");
@@ -82,9 +85,9 @@ public class CodeGenerator {
         }
     }
 
-    public  void genService(String tableName,String packageName, String modelName) {
+    public  void genService(String tableName,String packageName, String entityName) {
         try {
-            Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName, modelName);
+            Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName, entityName);
             String modelNameUpperCamel = (String)data.get("modelNameUpperCamel");
 
             FreemarkerUtil freemarkerUtil = new FreemarkerUtil(data);
@@ -100,10 +103,10 @@ public class CodeGenerator {
         }
     }
 
-    public  void genController(String tableName,String packageName, String modelName) {
+    public  void genController(String tableName,String packageName, String entityName) {
         try {
 
-            Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName, modelName);
+            Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName, entityName);
             String modelNameUpperCamel = (String)data.get("modelNameUpperCamel");
             data.put("baseRequestMapping", CodeNameConverUtil.modelNameConvertMappingPath(modelNameUpperCamel));
 
@@ -117,10 +120,10 @@ public class CodeGenerator {
 
     }
 
-    public  void genControllerTest(String tableName,String packageName, String modelName) {
+    public  void genControllerTest(String tableName,String packageName, String entityName) {
         try {
 
-            Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName, modelName);
+            Map<String, Object> data = initBaseTemplateParamMap(tableName,packageName, entityName);
             String modelNameUpperCamel = (String)data.get("modelNameUpperCamel");
             data.put("baseRequestMapping", CodeNameConverUtil.modelNameConvertMappingPath(modelNameUpperCamel));
 
@@ -134,11 +137,11 @@ public class CodeGenerator {
 
     }
 
-    private Map<String, Object> initBaseTemplateParamMap(String tableName,String packageName,String modelName) {
+    private Map<String, Object> initBaseTemplateParamMap(String tableName,String packageName,String entityName) {
         Map<String, Object> data = new HashMap<>();
         data.put("date", DATE);
         data.put("author", AUTHOR);
-        String modelNameUpperCamel = StringUtils.isEmpty(modelName) ? CodeNameConverUtil.tableNameConvertUpperCamel(tableName) : modelName;
+        String modelNameUpperCamel = StringUtils.isEmpty(entityName) ? CodeNameConverUtil.tableNameConvertUpperCamel(tableName) : entityName;
         data.put("modelNameUpperCamel", modelNameUpperCamel);
         data.put("modelNameLowerCamel", CodeNameConverUtil.tableNameConvertLowerCamel(tableName));
         data.put("basePackage", BASE_PACKAGE);
