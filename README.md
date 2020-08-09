@@ -4,14 +4,14 @@
 
 ## 平台简介
 
-Spring Boot API Project Monkey 项目基于 Spring Boot API Project Speed [项目地址](https://github.com/lihengming/spring-boot-api-project-seed)） 开源项目改造而来，将原先的 SpringBoot 版本 1.5.4.RELEASE 升级为 2.1.1.RELEASE 。
+Spring Boot API Project Monkey 项目基于 Spring Boot API Project Speed [项目地址](https://github.com/lihengming/spring-boot-api-project-seed) 开源项目改造而来，将原先的 SpringBoot 版本 1.5.4.RELEASE 升级为 2.1.1.RELEASE 。
 去除 MyBatis 通用Mapper插件替换为MyBatis 提供SpringBoot starter 原生方式，添加在线文档工具 Knife4j、单元测试封装、优化代码以及代码目录结构等新功能。具体请参看 *提供内置功能*列表。
 
 ### 开源该项目的初衷
 
 Spring Boot API Project Speed 项目是自己在 GitHub 查找 SpringBoot API 开源项目时发现的，参看了下源码后觉得写的确实不错，
 但是有些地方和我想要的不太一样，于是利用业务时间改造了一个自己喜欢的后台 API 项目的轮子。本着继续延续 Spring Boot API Project Speed 项目的宗旨：快速、简洁、灵活，故又起了一个新名字 Moneky ，
-同时项目部分代码参考优秀开源项目 RuoYi [RuoYi项目地址](https://github.com/lerry903/RuoYi)）
+同时项目部分代码参考优秀开源项目 RuoYi [RuoYi项目地址](https://github.com/lerry903/RuoYi)
 
 ## 提供内置功能
 
