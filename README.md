@@ -58,4 +58,6 @@ Spring Boot API Project Speed 项目是自己在 GitHub 查找 SpringBoot API �
 - 其他略
 
 ## License
-Apache-2.0 License ，感谢大家 [Star](https://github.com/zhuoqianmingyue/spring-boot-api-project-monkey/stargazers) & [Fork](https://github.com/lihengming/spring-boot-api-project-monkey/network/members) 的支持。
+Apache-2.0 License ，感谢大家 [Star](https://github.com/zhuoqianmingyue/spring-boot-api-project-monkey/stargazers) & [Fork](https://github.com/lihengming/spring-boot-api-project-monkey/network/members) 的支持。同时欢迎大家关注我的微信公众号 *桌前明月*，后续会在公公众号上提供项目详细文档。
+
+<div align=center><img src="https://img-blog.csdnimg.cn/20191005233835434.png"  /></div>
