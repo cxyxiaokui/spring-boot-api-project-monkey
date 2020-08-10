@@ -3,6 +3,7 @@ import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
 import com.company.project.demoUser.domain.DemoUser;
 import com.company.project.demoUser.service.DemoUserService;
+import com.company.project.kkantireptile.cn.keking.anti_reptile.annotation.AntiReptile;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -83,6 +84,7 @@ public class DemoUserController extends ControllerSupport<DemoUser>{
 
     @ApiOperation(value = "分页查询",notes = "分页查询",responseContainer = "List",response = PageInfo.class)
     @GetMapping
+    @AntiReptile
     public Result queryist(DemoUser demoUser, Page page) {
         PageHelper.startPage(page.getPageNum(), page.getPageSize());
         List<DemoUser> demoUserList = demoUserService.find(demoUser);
