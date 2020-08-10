@@ -1,6 +1,7 @@
 ![Spring Boot 2.0](https://img.shields.io/badge/Spring%20Boot-2.0-brightgreen.svg)
 ![JDK 1.8](https://img.shields.io/badge/JDK-1.8-brightgreen.svg)
-[![GitHub Release](https://img.shields.io/badge/version-V2.0.0-blue)](https://github.com/lihengming/spring-boot-api-project-seed/releases)
+[![GitHub Release](https://img.shields.io/badge/version-V2.1.0-blue)](https://github.com/zhuoqianmingyue/spring-boot-api-project-monkey/releases)
+![License](https://img.shields.io/github/license/zhuoqianmingyue/spring-boot-api-project-monkey)
 
 ## 平台简介
 
