@@ -9,6 +9,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author kl @kailing.pub
  * @since 2019/7/9
+ *
+ * @Editor：zhuoqianmingyue
+ * @ModifiedDate： 2020/8/11
+ * @Description：添加拦截提示类型
  */
 @ConfigurationProperties(prefix = "anti.reptile.manager")
 public class AntiReptileProperties {
@@ -18,7 +22,7 @@ public class AntiReptileProperties {
      */
     private boolean enabled;
     /**
-     * 拦截类型 JSON、HTML
+     * 拦截提示类型 JSON、HTML
      */
     private String interceptionType = "HTML";
 

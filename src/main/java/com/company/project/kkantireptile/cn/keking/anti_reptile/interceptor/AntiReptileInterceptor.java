@@ -31,6 +31,10 @@ import java.util.regex.Pattern;
 /**
  * @author chenjh
  * @since 2020/2/4 17:45
+ *
+ * @Editor：zhuoqianmingyue
+ * @ModifiedDate： 2020/8/11
+ * @Description：添加触发规则后JSON格式提醒
  */
 public class AntiReptileInterceptor extends HandlerInterceptorAdapter {
 
@@ -93,17 +97,17 @@ public class AntiReptileInterceptor extends HandlerInterceptorAdapter {
 
 
             String data = "";
+            response.setStatus(ResultCode.BANDWIDTH_LIMIT_EXCEEDED.code());
             if("JSON".equals(interceptionType)){
-                response.setStatus(509);
+
                 response.setCharacterEncoding("UTF-8");
                 response.setContentType("application/json; charset=utf-8");
                 Result result = new Result();
-                result.setCode(ResultCode.UNAUTHORIZED);
-                result.setMessage("您访问的太频繁");
+                result.setCode(ResultCode.BANDWIDTH_LIMIT_EXCEEDED);
+                result.setMessage("您访问的太频繁或者改设备禁止访问！");
                JsonConvertUtil.toJson(result);
             }
             if("HTML".equals(interceptionType)){
-                response.setStatus(509);
                 response.setContentType("text/html;charset=utf-8");
                 VerifyImageDTO verifyImage = verifyImageUtil.generateVerifyImg();
                 verifyImageUtil.saveVerifyCodeToRedis(verifyImage);
