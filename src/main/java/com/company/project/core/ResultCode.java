@@ -25,6 +25,7 @@ public enum ResultCode {
     NOT_FOUND(404),
     /**服务器内部错误*/
     INTERNAL_SERVER_ERROR(500),
+    /**超出了带宽限制*/
     BANDWIDTH_LIMIT_EXCEEDED(509);
     private final int code;
 
