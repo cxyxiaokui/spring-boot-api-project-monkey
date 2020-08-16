@@ -13,9 +13,9 @@ import com.google.common.base.CaseFormat;
  **/
 public class GenTableColumn {
 
-    private SetJavaFieldTypeState current;
+    private AbstractJavaFieldTypeState current;
 
-    public GenTableColumn setCurrent(SetJavaFieldTypeState current) {
+    public GenTableColumn setCurrent(AbstractJavaFieldTypeState current) {
         this.current = current;
         return this;
     }
@@ -44,15 +44,15 @@ public class GenTableColumn {
     /** JAVA字段名 */
     private String javaField;
 
-    private String javaFieldXML;
+    private String javaFieldXml;
 
-    public String getJavaFieldBatchXML() {
+    public String getJavaFieldBatchXml() {
         return "#{item."+this.getJavaField()+"}";
     }
 
-    private String javaFieldBatchXML;
+    private String javaFieldBatchXml;
 
-    public String getJavaFieldXML() {
+    public String getJavaFieldXml() {
         return "#{"+this.getJavaField()+"}";
     }
 

@@ -1,5 +1,5 @@
-package com.company.project.demoUser.mapper;
-import com.company.project.demoUser.domain.DemoUser;
+package com.company.project.demouser.mapper;
+import com.company.project.demouser.domain.DemoUser;
 import com.company.project.core.IMapper;
 import org.apache.ibatis.annotations.Mapper;
 

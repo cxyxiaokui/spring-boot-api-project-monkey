@@ -1,4 +1,4 @@
-package com.company.project.demoUser.domain;
+package com.company.project.demouser.domain;
 import com.company.project.core.BasicEntity;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;

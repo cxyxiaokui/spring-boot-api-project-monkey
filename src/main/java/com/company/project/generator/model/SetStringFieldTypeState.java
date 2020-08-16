@@ -7,7 +7,7 @@ package com.company.project.generator.model;
  * @Date： 2020/7/26 8:36 上午
  * @Description：参考RuoYi 项目代码生成器处理逻辑  代码开源项目地址 RuoYi：https://github.com/lerry903/RuoYi
  **/
-public class SetStringFieldTypeState extends SetJavaFieldTypeState {
+public class SetStringFieldTypeState extends AbstractJavaFieldTypeState {
 
     @Override
     public void setJavaType(GenTableColumn tableColumn) {

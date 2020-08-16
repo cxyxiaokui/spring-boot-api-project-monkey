@@ -1,5 +1,5 @@
-package com.company.project.demoUser.service;
-import com.company.project.demoUser.domain.DemoUser;
+package com.company.project.demouser.service;
+import com.company.project.demouser.domain.DemoUser;
 import com.company.project.core.Service;
 
 

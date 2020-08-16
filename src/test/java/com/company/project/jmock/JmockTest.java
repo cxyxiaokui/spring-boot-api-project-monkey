@@ -1,7 +1,7 @@
 package com.company.project.jmock;
 
 //import com.company.project.demoUser.domain.DemoUser;
-import com.company.project.demoUser.domain.DemoUser;
+import com.company.project.demouser.domain.DemoUser;
 import com.github.jsonzou.jmockdata.JMockData;
 import com.github.jsonzou.jmockdata.MockConfig;
 import com.github.jsonzou.jmockdata.TypeReference;

@@ -1,9 +1,9 @@
-package com.company.project.demoUser.web;
+package com.company.project.demouser.web;
 
 import com.company.project.Tester;
 import com.company.project.core.*;
-import com.company.project.demoUser.domain.DemoUser;
-import com.company.project.demoUser.service.DemoUserService;
+import com.company.project.demouser.domain.DemoUser;
+import com.company.project.demouser.service.DemoUserService;
 import com.github.jsonzou.jmockdata.JMockData;
 import com.github.jsonzou.jmockdata.MockConfig;
 import com.github.pagehelper.PageInfo;

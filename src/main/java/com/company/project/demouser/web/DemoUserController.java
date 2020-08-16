@@ -1,14 +1,12 @@
-package com.company.project.demoUser.web;
+package com.company.project.demouser.web;
 import com.company.project.core.Result;
-import com.company.project.core.ResultGenerator;
-import com.company.project.demoUser.domain.DemoUser;
-import com.company.project.demoUser.service.DemoUserService;
+import com.company.project.demouser.domain.DemoUser;
+import com.company.project.demouser.service.DemoUserService;
 import com.company.project.kkantireptile.cn.keking.anti_reptile.annotation.AntiReptile;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;

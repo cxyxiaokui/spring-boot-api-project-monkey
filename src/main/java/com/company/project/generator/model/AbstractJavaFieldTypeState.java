@@ -9,9 +9,21 @@ import java.util.Arrays;
  * @Date： 2020/7/26 8:25 上午
  * @Description：参考RuoYi 项目代码生成器处理逻辑  代码开源项目地址 RuoYi：https://github.com/lerry903/RuoYi
  **/
-public abstract class SetJavaFieldTypeState {
+public abstract class AbstractJavaFieldTypeState {
 
+    public static final String LEFT_PARENTHESIS = "(";
+
+    /**
+     * 设置Java字段类型
+     * @param tableColumn
+     */
     public abstract void setJavaType(GenTableColumn tableColumn);
+
+    /**
+     * 切换状态
+     * @param dataType
+     * @param tableColumn
+     */
     public abstract void switchState(String dataType, GenTableColumn tableColumn);
     /**
      * 校验数组是否包含指定值
@@ -32,8 +44,8 @@ public abstract class SetJavaFieldTypeState {
      * @return 截取后的列类型
      */
     public static String getDbType(String columnType) {
-        if (StringUtils.indexOf(columnType, "(") > 0) {
-            return StringUtils.substringBefore(columnType, "(");
+        if (StringUtils.indexOf(columnType, LEFT_PARENTHESIS) > 0) {
+            return StringUtils.substringBefore(columnType, LEFT_PARENTHESIS);
         } else {
             return columnType;
         }

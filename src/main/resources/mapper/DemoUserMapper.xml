@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.company.project.demoUser.mapper.DemoUserMapper">
+<mapper namespace="com.company.project.demouser.mapper.DemoUserMapper">
 
-    <select id="getById" resultType="com.company.project.demoUser.domain.DemoUser">
+    <select id="getById" resultType="com.company.project.demouser.domain.DemoUser">
         SELECT * FROM  demo_user WHERE id =  #{id}
     </select>
 
-    <select id="findByIds" resultType="com.company.project.demoUser.domain.DemoUser">
+    <select id="findByIds" resultType="com.company.project.demouser.domain.DemoUser">
         SELECT * FROM  demo_user  WHERE id IN
         <foreach collection="ids" item="id" open="(" separator="," close=")">
              #{id}
         </foreach>
     </select>
 
-    <select id="find" resultType="com.company.project.demoUser.domain.DemoUser">
+    <select id="find" resultType="com.company.project.demouser.domain.DemoUser">
         SELECT * FROM demo_user
     </select>
 
-    <select id="findByMap" resultType="com.company.project.demoUser.domain.DemoUser" parameterType="Map">
+    <select id="findByMap" resultType="com.company.project.demouser.domain.DemoUser" parameterType="Map">
         SELECT * FROM demo_user
         <where>
             <if test="username != null and username != ''">
@@ -54,7 +54,7 @@
         </where>
     </select>
 
-    <insert id="save" parameterType="com.company.project.demoUser.domain.DemoUser" useGeneratedKeys="true" keyProperty="id">
+    <insert id="save" parameterType="com.company.project.demouser.domain.DemoUser" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO demo_user
         (
             `username`,
@@ -118,7 +118,7 @@
             </foreach>
         </if>
     </insert>
-    <update id="update" parameterType="com.company.project.demoUser.domain.DemoUser">
+    <update id="update" parameterType="com.company.project.demouser.domain.DemoUser">
         UPDATE demo_user
         <set>
                 <if test="username != null">  `username` = #{username}, </if>

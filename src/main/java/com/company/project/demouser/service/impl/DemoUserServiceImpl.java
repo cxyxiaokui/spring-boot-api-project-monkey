@@ -1,13 +1,11 @@
-package com.company.project.demoUser.service.impl;
+package com.company.project.demouser.service.impl;
 
-import com.company.project.demoUser.mapper.DemoUserMapper;
-import com.company.project.demoUser.domain.DemoUser;
-import com.company.project.demoUser.service.DemoUserService;
+import com.company.project.demouser.mapper.DemoUserMapper;
+import com.company.project.demouser.domain.DemoUser;
+import com.company.project.demouser.service.DemoUserService;
 import com.company.project.core.AbstractService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import javax.annotation.Resource;
 import com.company.project.core.IMapper;
 
 
